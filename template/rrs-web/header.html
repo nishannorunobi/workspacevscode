@@ -1,0 +1,38 @@
+<style>
+    .page-icon {
+        height: 80%;
+        width: 30%;
+    }
+</style>
+<div class="header-icon">
+    <img class="page-icon" src="images/cv_icon3.svg" alt="icon">
+</div>
+<div class="header-title"><div>Resume Ranking System</div></div>
+<div class="header-menu">
+    <ul class="header-menu-ul">
+        <li><a href="#" onclick="onHomeClck(); return false;">Home</a></li>
+        <li><a href="#" onclick="onBarChartClick(); return false;">Bar Chart</a></li>
+        <li><a href="#" onclick="onPieChartClick(); return false;">Pie Chart</a></li>
+        <li><a href="#" onclick="onLogoutClick(); return false;">Logout</a></li>
+    </ul>
+</div>
+
+<script type = "text/javascript">
+    //On nav bar click
+    function onHomeClck (){
+        loadMainDiv('http://127.0.0.1:5500/home.html');
+    }
+
+    function onBarChartClick() {
+        loadMainDiv('http://127.0.0.1:5500/similarity_chart.html');
+    }
+
+    function onPieChartClick() {
+        loadMainDiv('http://127.0.0.1:5500/pie_chart.html');
+    }
+
+    function onLogoutClick() {
+        loadMainDiv('http://127.0.0.1:5500/logout.html');
+    }
+
+</script>

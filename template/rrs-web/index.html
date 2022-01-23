@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html  lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <style>
+        .page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: stretch;
+        }
+
+        .header {
+            max-height: 70px;
+            gap: 5px;
+            min-height: fit-content;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: stretch;
+            color: white;
+            flex-grow: 2;
+            background-color: var(--color-header);
+            /* border-style: solid; */
+        }
+
+        .header-bottom {
+            display: none;
+            flex-grow: 0;
+        }
+
+        .body {
+            flex-grow: 16;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: stretch;
+        }
+
+        .left {
+            flex-grow: 2;
+            /* border-style: solid; */
+        }
+
+        .main {
+            flex-grow: 8;
+            /* border-style: solid; */
+        }
+
+        .right {
+            flex-grow: 1;
+            /* border-style: solid; */
+        }
+
+        .footer-top {
+            display: none;
+            flex-grow: 0;
+        }
+
+        .footer {
+            max-height: fit-content;
+            min-height: 30px;
+            background-color: var(--color-footer);
+            flex-grow: 1;
+            color: white;
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+        }
+        .footer-left {
+          flex-grow: 1;   
+        }
+        .footer-text {
+            flex-grow: 15;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div id="header-div" class="header">
+            
+        </div>
+        <div class="header-bottom"> header bottom</div>
+        <div class="body">
+            <div class="left">
+                
+            </div>
+            <div id="main-div" class="main">
+                
+            </div>
+            <div class="right">
+                
+            </div>
+        </div>
+        <div class="footer-top">footer top </div>
+        <div class="footer">
+            <div class="footer-left"></div>
+            <div class="footer-text">Copyright at brac university</div>
+        </div>
+    </div>
+
+</body>
+
+<script type = "text/javascript">
+    if (window.addEventListener) { // Mozilla, Netscape, Firefox
+        window.addEventListener('load', WindowLoad, false);
+    } else if (window.attachEvent) { // IE
+        window.attachEvent('onload', WindowLoad);
+    }
+
+    function WindowLoad(event) {
+        loadHeader('http://127.0.0.1:5500/header.html');
+        loadMainDiv('http://127.0.0.1:5500/home.html');       
+    }
+
+    function loadHeader(url){
+        $.ajax(url,   // request url
+        {
+            success: function (data, status, xhr) {// success callback function
+                $('#header-div').html(data);
+            }
+        });
+    }
+
+    function loadMainDiv(url){
+        $.ajax(url,   // request url
+        {
+            success: function (data, status, xhr) {// success callback function
+                $('#main-div').html(data);
+            }
+        });
+    }
+
+    
+</script>
+<script type = "text/javascript" src = "js/jquery.js">
+</script>
+<script type = "text/javascript" src = "js/loader.js">
+
+</script>
+<script type = "text/javascript">
+         google.charts.load('current', {packages: ['corechart']});     
+</script>
+</html>
