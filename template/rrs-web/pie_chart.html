@@ -1,25 +1,25 @@
-<div id = "container" style = "width: 550px; height: 400px; margin: 0 auto">
+<div id = "container" style = "width: 650px; height: 600px; margin: 0 auto">
 </div>
 <script language = "JavaScript">
    function drawChart() {
       // Define the chart to be drawn.
       var data = new google.visualization.DataTable();
-      data.addColumn('string', 'Browser');
+      data.addColumn('string', 'Profession');
       data.addColumn('number', 'Percentage');
       data.addRows([
-         ['Firefox', 45.0],
-         ['IE', 26.8],
-         ['Chrome', 12.8],
-         ['Safari', 8.5],
-         ['Opera', 6.2],
+         ['Software', 45.0],
+         ['System', 26.8],
+         ['Network', 12.8],
+         ['Data_Science', 8.5],
+         ['AI_ML', 6.2],
          ['Others', 0.7]
       ]);
          
       // Set chart options
       var options = {
-         'title':'Browser market shares at a specific website, 2014',
-         'width':550,
-         'height':400
+         'title':'Distribution of resumes categories',
+         'width':650,
+         'height':600
       };
 
       // Instantiate and draw the chart.

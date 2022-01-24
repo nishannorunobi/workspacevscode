@@ -1,21 +1,26 @@
 .header-icon {
+    /* flex-grow: 1; */
     /* border-style: solid; */
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
 }
 
 .header-title {
+    /* flex-grow: 3; */
     /* border-style: solid; */
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
+    font-size: 1.5em;
 }
 
+
 .header-menu {
-    
+    /* flex-grow: 10; */
+    /* border-style: solid; */
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
