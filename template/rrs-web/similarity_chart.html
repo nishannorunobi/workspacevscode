@@ -4,16 +4,10 @@
 <script language = "JavaScript">
    var data = null;
    function loadChartData(){
-      // datafromserver = [
-      //     ['Year', 'Sales', 'Expenses', 'Profit'],
-      //     ['2014', 1000, 400, 200],
-      //     ['2015', 1170, 460, 250],
-      //     ['2016', 660, 1120, 300],
-      //     ['2017', 1030, 540, 350]
-      //   ];
-      $.ajax('http://127.0.0.1:8000/get-chart-list?page=1&size=10',   // request url
+
+      $.ajax('http://127.0.0.1:8000/get-chart-list?page=1&size=10',   
         {
-            success: function (data, status, xhr) {// success callback function
+            success: function (data, status, xhr) {
                datafromserver = data;
             },
             error: function(jqXHR, exception) {
@@ -29,36 +23,13 @@
                                     0.8872682886921271,
                                     0.03738875166251099,
                                     0.014019013871656756
-                                 ],
-                                 [
-                                    "resume-18",
-                                    0.8556927223621626,
-                                    0.03736703295509451,
-                                    0.012744558065142506
-                                 ],
-                                 [
-                                    "resume-19",
-                                    0.7603045540896021,
-                                    0.03293895815419091,
-                                    0.007646734839085504
-                                 ],
-                                 [
-                                    "resume-38",
-                                    0.7511425929965968,
-                                    0.03736703295509451,
-                                    0.007646734839085504
-                                 ],
-                                 [
-                                    "resume-31",
-                                    0.7204201620349386,
-                                    0.03738875166251099,
-                                    0.008921190645599755
                                  ]
                                  ];
             }
         });
    }
    function drawChart() {
+      loadChartData();
       // Define the chart to be drawn.
       var data = google.visualization.arrayToDataTable(datafromserver);
 
@@ -71,6 +42,14 @@
       // Instantiate and draw the chart.
       var chart = new google.visualization.BarChart(document.getElementById('container'));
       chart.draw(data, options);
+      google.visualization.events.addListener(chart, 'select', selectHandler);
+
+      function selectHandler() {
+         var resume_name = data.getValue(chart.getSelection()[0].row, 0);
+         //$.ajax('http://127.0.0.1:8000/download?resume_name='+resume_name,   
+         window.open('http://127.0.0.1:8000/download/'+resume_name);
+      }
+      
    }
    google.charts.setOnLoadCallback(drawChart);
 </script>
